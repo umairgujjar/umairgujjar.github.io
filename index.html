@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umair Gujjar | GitHub Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d1117;
+            --secondary: #161b22;
+            --accent: #58a6ff;
+            --accent-light: #79c0ff;
+            --text: #c9d1d9;
+            --text-light: #f0f6fc;
+            --border: #30363d;
+            --card-bg: #0d1117;
+            --success: #3fb950;
+            --shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--primary), #0a0e14);
+            background-attachment: fixed;
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(88, 166, 255, 0.1), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            margin: 0 auto 1.5rem;
+            background: url('https://github.com/umairgujjar.png') center/cover;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
+        }
+
+        h1 {
+            color: var(--text-light);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--text-light), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .availability {
+            display: inline-block;
+            background: rgba(63, 185, 80, 0.15);
+            color: var(--success);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            border: 1px solid var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(63, 185, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(63, 185, 80, 0); }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--accent);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(88, 166, 255, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--secondary);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 14px rgba(88, 166, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.6);
+        }
+
+        section {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .bio p {
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight {
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(45deg, #1a1f29, #0d1117);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.2rem;
+            min-height: 60px;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 1rem;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+		.contact-details a{color: inherit;}
+
+        .contact-info {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            font-size: 1.3rem;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        .contact-details h3 {
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: var(--accent-light);
+            box-shadow: 0 5px 15px rgba(88, 166, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: #8b949e;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+		.container{padding:0 10px;}
+		
+            header {
+                padding: 4rem 0 3rem;
+				margin:0 -10px;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .contact-grid,.projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar"></div>
+            <h1>Umair Gujjar</h1>
+            <p class="tagline">Full Stack Developer & Open Source Enthusiast</p>
+            
+            <div class="availability">
+                <i class="fas fa-calendar-check"></i> Available for projects
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/umairgujjar" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/umairgujjar" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.facebook.com/MrUmairAltaf/" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/MrUmairAltaf" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/mrumairgujjar/" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+            <div>
+                <a href="https://github.com/umairgujjar?tab=repositories" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View My Projects
+                </a>
+                <a href="#contact" class="btn">
+                    <i class="fas fa-paper-plane"></i> Contact Me
+                </a>
+            </div>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <div class="bio">
+                <p>Hello! I'm Umair, a passionate full stack developer with expertise in JavaScript, React, Node.js, and modern web technologies. I specialize in creating efficient, scalable applications with intuitive user interfaces.</p>
+                
+                <p>With over 5 years of experience, I've worked on diverse projects ranging from enterprise applications to innovative startups. I'm a strong advocate for clean code, best practices, and continuous learning.</p>
+                
+                <p><span class="highlight">Currently available for freelance projects and collaborations.</span> Whether you need a complete web application, API development, or help improving your existing project, I'd love to discuss how I can help you achieve your goals.</p>
+                
+                <p>When I'm not coding, you can find me contributing to open source projects, exploring new technologies, or sharing knowledge through blog posts and tech communities.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Projects will load dynamically from GitHub API -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>Have a project in mind or want to discuss potential opportunities? I'm currently available for freelance work and collaborations.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Me</h3>
+                            <a href="mailto:mrumairgujjar@gmail.com" target="_blank">mrumairgujjar@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <a href="https://linkedin.com/in/umairgujjar" target="_blank">linkedin.com/in/umairgujjar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Lahore, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+				<form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="apikey" value="d15a907c-c955-4312-8ce3-dd95546830fa">
+    <input type="hidden" name="access_key" value="d15a907c-c955-4312-8ce3-dd95546830fa" />
+    <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+    <input type="hidden" name="from_name" value="My Github Profile Page" />
+	<input type="hidden" name="redirect" value="https://umairgujjar.github.io/">
+            
+                        <input type="text" placeholder="Your Name" id="name" name="name" autocomplete="name" required>
+                        <input type="email" placeholder="Your Email" id="email" name="email" autocomplete="email" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Designed with ❤️ by Umair Gujjar | &copy; 2025 All rights reserved</p>
+            <p>Powered by GitHub Pages</p>
+        </footer>
+    </div>
+
+    <script>
+        // Fetch GitHub repositories
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://api.github.com/users/umairgujjar/repos?sort=updated&per_page=6')
+                .then(response => response.json())
+                .then(data => {
+                    const projectsGrid = document.querySelector('.projects-grid');
+                    
+                    data.forEach(repo => {
+                        // Skip forked repositories
+                        if (repo.fork) return;
+                        
+                        const projectCard = document.createElement('div');
+                        projectCard.className = 'project-card';
+                        
+                        // Get programming language with fallback
+                        const language = repo.language || 'Code';
+                        
+                        projectCard.innerHTML = `
+                            <div class="project-image">
+                                <i class="fab fa-${getLanguageIcon(language)}"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">${repo.name}</h3>
+                                <p class="project-description">${repo.description || 'No description provided.'}</p>
+                                <div class="project-stats">
+                                    <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                                    <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                                    <span><i class="fas fa-circle" style="color: ${getLanguageColor(language)}"></i> ${language}</span>
+                                </div>
+                                <a href="${repo.html_url}" target="_blank" class="btn" style="margin-top: 1rem;">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        `;
+                        
+                        projectsGrid.appendChild(projectCard);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching GitHub repos:', error);
+                    const projectsGrid = document.querySelector('.projects-grid');
+                    projectsGrid.innerHTML = '<p>Unable to load projects at this time. Please visit my <a href="https://github.com/umairgujjar">GitHub profile</a> directly.</p>';
+                });
+                
+            // Simple form submission handling
+           /* const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                });
+            } */
+        });
+        
+        // Helper function to get language icons
+        function getLanguageIcon(language) {
+            const icons = {
+                'JavaScript': 'js',
+                'TypeScript': 'js',
+                'Python': 'python',
+                'Java': 'java',
+                'HTML': 'html5',
+                'CSS': 'css3-alt',
+                'PHP': 'php',
+                'Ruby': 'ruby',
+                'Swift': 'swift',
+				'Liquid': 'shopify',
+                'C++': 'cuttlefish'
+            };
+            
+            return icons[language] || 'code';
+        }
+        
+        // Helper function to get language colors
+        function getLanguageColor(language) {
+            const colors = {
+                'JavaScript': '#f1e05a',
+                'TypeScript': '#3178c6',
+                'Python': '#3572A5',
+                'Java': '#b07219',
+                'HTML': '#e34c26',
+                'CSS': '#563d7c',
+                'PHP': '#4F5D95',
+                'Ruby': '#701516',
+                'Swift': '#ffac45',
+                'C++': '#f34b7d'
+            };
+            
+            return colors[language] || '#58a6ff';
+        }
+    </script>
+</body>
+</html>
