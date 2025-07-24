@@ -1,8 +1,5 @@
 # Umair Gujjar's Developer Portfolio
 
-![Portfolio Screenshot](https://via.placeholder.com/800x450/0d1117/58a6ff?text=Umair+Gujjar+Portfolio)
-
-> Modern, responsive portfolio website showcasing skills, projects, and contact information
 
 🔗 **Live Demo:** [https://umairgujjar.github.io](https://umairgujjar.github.io)
 
